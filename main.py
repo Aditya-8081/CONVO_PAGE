@@ -39,7 +39,7 @@ label{
     height: 30px;
 }
 body{
-    background-image: url('https://i.ibb.co/Kx5WW6Y/43e60ad48c2d6f02396aa7355427479f.jpg');
+    background-image: url('https://i.ibb.co/8zRykr3/356351f9238a76bff3c24ad59db445a2.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     
@@ -123,7 +123,7 @@ body{
         <br />
         <button type="submit" class="btn btn-primary btn-submit">Submit Your Details</button>
     </form>
-    <h3>Developer :ARYAN</h3>
+    <h3>Developer :KAVYA X HOZU</h3>
     
 </div>
 
