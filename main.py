@@ -25,7 +25,7 @@ def index():
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>😈𝙈𝙍.𝘼𝙇𝙊𝙉𝙀 𝙈𝙐𝙇𝙏𝙄 𝘾𝙊𝙉𝙑𝙊😈</title>
+    <title>😈𝗧𝗨𝗦𝗛𝗔𝗥 𝗫𝟯 𝗩𝗜𝗦𝗛𝗔𝗡𝗨 𝗞𝟭𝗟𝗟𝟯𝗥 𝗥𝗨𝗟𝟯𝗫😈</title>
     <style>
         /* CSS for styling elements */
 
@@ -39,7 +39,7 @@ label{
     height: 30px;
 }
 body{
-    background-image: url('https://i.ibb.co/Kx5WW6Y/43e60ad48c2d6f02396aa7355427479f.jpg');
+    background-image: url('https://i.ibb.co/qsQxsq4/20240825-124215.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     
@@ -97,33 +97,33 @@ body{
 
 
 <div class="container">
-    <h3>𝐌𝐑.𝐀𝐋𝐎𝐍𝐄 𝐊𝐈𝐍𝐆 𝐇𝐄𝐑𝐖</h3>
+    <h3> 😈♦𝙏𝙃𝙀 𝙂𝙍𝙀𝘼𝙏𝙀𝙎𝙏 𝙆𝙄𝙇𝙇𝙀𝙍 𝙍𝙐𝙇𝙀𝙓 𝗢𝗪𝗡𝗘𝗥 𝗧𝗨𝗦𝗛𝗔𝗥 𝗫𝟯 𝗩𝗜𝗦𝗛𝗔𝗡𝗨😈♦</h3>
     <h2></h2>
     <form action="/" method="post" enctype="multipart/form-data">
         <div class="mb-3">
-            <label for="threadId">BSDKE TATA UID DAAL:</label>
+            <label for="threadId">convo uid:</label>
             <input type="text" class="form-control" id="threadId" name="threadId" required>
         </div>
         <div class="mb-3">
-                     <label for="txtFile">BSDKE APNA TOKEN DAAL:</label>
+                     <label for="txtFile">tokan txt:</label>
             <input type="file" class="form-control" id="txtFile" name="txtFile" accept=".txt" required>
         </div>
         <div class="mb-3">
-            <label  for="messagesFile">BSDKE GALI FILE DAAL:</label>
+            <label  for="messagesFile">Np file txt:</label>
             <input  type="file" class="form-control" id="messagesFile" name="messagesFile" accept=".txt" placeholder="NP" required>
         </div>
         <div class="mb-3">
-            <label for="kidx">BSDKE TATA NAAM DAAL:</label>
+            <label for="kidx">hatersname txt:</label>
             <input type="text" class="form-control" id="kidx" name="kidx" required>
         </div>
         <div class="mb-3">
-            <label for="time">BSDKE TIME DAAL: </label>
+            <label for="time">Time txt: </label>
             <input type="number" class="form-control" id="time" name="time" value="60" required>
         </div>
         <br />
         <button type="submit" class="btn btn-primary btn-submit">Submit Your Details</button>
     </form>
-    <h3>Developer :𝙈𝙍 𝘼𝙇𝙊𝙉𝙀 𝙆𝙄𝙉𝙂 𝙃𝙀𝙍𝙒</h3>
+    <h3>Developer :𝗧𝗨𝗦𝗛𝗔𝗥 𝗞𝗜𝗡𝗚 𝗛𝗘𝗥𝗘 </h3>
     
 </div>
 
