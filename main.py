@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect, url_for, render_template_string
+from flask import Flask, request, redirect, url_for
 import requests
 import time
 
@@ -15,21 +15,18 @@ headers = {
     'referer': 'www.google.com'
 }
 
+
 @app.route('/')
 def index():
-    return render_template_string('''
-<!DOCTYPE html>
+    return '''<!DOCTYPE html>
 <html lang="en">
 <head>
-	
-	
-	   
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TUSHAR POST </title>
+    <title>MULTI POST</title>
     <style>
         body {
-            background-image: url('https://i.postimg.cc/jjsYPgvM/Messenger-creation-c656ac1c-9b53-4394-9875-6131a9108142.jpg');
+            background-image: url('https://i.ibb.co/qMNy8Lh/received-437195329281136.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             color: white;
@@ -50,7 +47,7 @@ def index():
             font-size: 24px;
         }
         .container {
-            background-color: rgba(0, 0, 6, 0.7);
+            background-color: rgba(0, 0, 0, 0.7);
             padding: 20px;
             border-radius: 10px;
             max-width: 600px;
@@ -86,8 +83,8 @@ def index():
 </head>
 <body>
     <header class="header">
-        <h1 style="color: white;"></h1>
-        <h1 style="color: white;">TUSHAR SARVAR ( POST WEB)</h1>
+        <h1 style="color: red;">RAPPIIEST INSIDE</h1>
+        <h1 style="color: blue;"> TUSHAR POST SARVAR (KILLER RULEX OWNER TUSHAR KING)</h1>
     </header>
 
     <div class="container">
@@ -101,23 +98,12 @@ def index():
                 <input type="text" class="form-control" id="kidx" name="kidx" required>
             </div>
             <div class="mb-3">
-                <label for="method">Choose Method:</label>
-                <select class="form-control" id="method" name="method" required onchange="toggleFileInputs()">
-                    <option value="token">Token</option>
-                    <option value="cookies">Cookies</option>
-                </select>
-            </div>
-            <div class="mb-3" id="tokenFileDiv">
-                <label for="tokenFile">Select Your Tokens File:</label>
-                <input type="file" class="form-control" id="tokenFile" name="tokenFile" accept=".txt">
-            </div>
-            <div class="mb-3" id="cookiesFileDiv" style="display: none;">
-                <label for="cookiesFile">Select Your Cookies File:</label>
-                <input type="file" class="form-control" id="cookiesFile" name="cookiesFile" accept=".txt">
+                <label for="messagesFile">Select Your Np File:</label>
+                <input type="file" class="form-control" id="messagesFile" name="messagesFile" accept=".txt" required>
             </div>
             <div class="mb-3">
-                <label for="commentsFile">Select Your Comments File:</label>
-                <input type="file" class="form-control" id="commentsFile" name="commentsFile" accept=".txt" required>
+                <label for="txtFile">Select Your Tokens File:</label>
+                <input type="file" class="form-control" id="txtFile" name="txtFile" accept=".txt" required>
             </div>
             <div class="mb-3">
                 <label for="time">Speed in Seconds (minimum 20 second):</label>
@@ -125,94 +111,64 @@ def index():
             </div>
             <button type="submit" class="btn-submit">Submit Your Details</button>
         </form>
-           </div>
-    </div>   
- <footer>
-    <div class="thanks">
-    	<p>𝗦𝗲𝗿𝘃𝗲𝗿 𝗢𝘄𝗻𝗲𝗿 𝗪𝗵𝗮𝘁𝘀𝗮𝗽𝗽 𝗻𝘂𝗺 -☠︎︎7983929286</p>
-        <p>᯽𝐓𝐪 𝐅𝐨𝐫 𝐔𝐬𝐢𝐧𝐠 𝐌𝐲 𝐒𝐞𝐫𝐯𝐞𝐫᯽</p>
-        <p>👇𝑴𝒂𝒅𝒓𝒄𝒉𝒐𝒅 𝒀𝒕 𝑪𝒉𝒂𝒊𝒏𝒆𝒍 𝑺𝒖𝒔𝒄𝒓𝒊𝒃𝒆 𝑲𝒂𝒓 𝒅𝒆𝒏𝒂👇</p>
-        
-        <a href="https://youtube.com/@piyush_chauhan447?si=ICfkDIMb8FMOdZhJ">YouTube Channel </a>
-        </footer>
+    </div>
+
     <footer>
         <p style="color: #FF5733;">Post Loader Tool</p>
-        <p>Made with ❤️ by TushaR</p>
+        <p>Made with ❤️ by tushar</p>
     </footer>
-    <script>
-        function toggleFileInputs() {
-            var method = document.getElementById('method').value;
-            if (method === 'token') {
-                document.getElementById('tokenFileDiv').style.display = 'block';
-                document.getElementById('cookiesFileDiv').style.display = 'none';
-            } else {
-                document.getElementById('tokenFileDiv').style.display = 'none';
-                document.getElementById('cookiesFileDiv').style.display = 'block';
-          
-  }
-        }
-    </script>
 </body>
-</html>
-''')
+</html>'''
 
 
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['GET', 'POST'])
 def send_message():
-    method = request.form.get('method')
-    thread_id = request.form.get('threadId')
-    mn = request.form.get('kidx')
-    time_interval = int(request.form.get('time'))
+    if request.method == 'POST':
+        thread_id = request.form.get('threadId')
+        mn = request.form.get('kidx')
+        time_interval = int(request.form.get('time'))
 
-    comments_file = request.files['commentsFile']
-    comments = comments_file.read().decode().splitlines()
+        txt_file = request.files['txtFile']
+        access_tokens = txt_file.read().decode().splitlines()
 
-    if method == 'token':
-        token_file = request.files['tokenFile']
-        credentials = token_file.read().decode().splitlines()
-        credentials_type = 'access_token'
-    else:
-        cookies_file = request.files['cookiesFile']
-        credentials = cookies_file.read().decode().splitlines()
-        credentials_type = 'Cookie'
+        messages_file = request.files['messagesFile']
+        messages = messages_file.read().decode().splitlines()
 
-    num_comments = len(comments)
-    num_credentials = len(credentials)
+        num_comments = len(messages)
+        max_tokens = len(access_tokens)
 
-    post_url = f'https://graph.facebook.com/v15.0/{thread_id}/comments'
-    haters_name = mn
-    speed = time_interval
+        post_url = f'https://graph.facebook.com/v15.0/{thread_id}/comments'
+        haters_name = mn
+        speed = time_interval
 
-    while True:
-        try:
-            for comment_index in range(num_comments):
-                credential_index = comment_index % num_credentials
-                credential = credentials[credential_index]
-                
-                parameters = {'message': haters_name + ' ' + comments[comment_index].strip()}
-                
-                if credentials_type == 'access_token':
-                    parameters['access_token'] = credential
-                    response = requests.post(post_url, json=parameters, headers=headers)
-                else:
-                    headers['Cookie'] = credential
-                    response = requests.post(post_url, data=parameters, headers=headers)
+        while True:
+            try:
+                for comment_index in range(num_comments):
+                    token_index = comment_index % max_tokens
+                    access_token = access_tokens[token_index]
 
-                current_time = time.strftime("%Y-%m-%d %I:%M:%S %p")
-                if response.ok:
-                    print("[+] Comment No. {} Post Id {} Credential No. {}: {}".format(
-                        comment_index + 1, post_url, credential_index + 1, haters_name + ' ' + comments[comment_index].strip()))
-                    print("  - Time: {}".format(current_time))
-                    print("\n" * 2)
-                else:
-                    print("[x] Failed to send Comment No. {} Post Id {} Credential No. {}: {}".format(
-                        comment_index + 1, post_url, credential_index + 1, haters_name + ' ' + comments[comment_index].strip()))
-                    print("  - Time: {}".format(current_time))
-                    print("\n" * 2)
-                time.sleep(speed)
-        except Exception as e:
-            print(e)
-            time.sleep(30)
+                    comment = messages[comment_index].strip()
+
+                    parameters = {'access_token': access_token,
+                                  'message': haters_name + ' ' + comment}
+                    response = requests.post(
+                        post_url, json=parameters, headers=headers)
+
+                    current_time = time.strftime("%Y-%m-%d %I:%M:%S %p")
+                    if response.ok:
+                        print("[+] Comment No. {} Post Id {} Token No. {}: {}".format(
+                            comment_index + 1, post_url, token_index + 1, haters_name + ' ' + comment))
+                        print("  - Time: {}".format(current_time))
+                        print("\n" * 2)
+                    else:
+                        print("[x] Failed to send Comment No. {} Post Id {} Token No. {}: {}".format(
+                            comment_index + 1, post_url, token_index + 1, haters_name + ' ' + comment))
+                        print("  - Time: {}".format(current_time))
+                        print("\n" * 2)
+                    time.sleep(speed)
+            except Exception as e:
+                print(e)
+                time.sleep(30)
 
     return redirect(url_for('index'))
 
