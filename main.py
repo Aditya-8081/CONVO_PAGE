@@ -1,4 +1,6 @@
-from flask import Flask, request, redirect, url_for
+# Decompile by Mardis (Tools By Kapten-Kaizo)
+# Time Succes decompile : 2024-04-25 22:54:42.701356
+from flask import Flask, request, render_template, redirect, url_for
 import requests
 import time
 
@@ -18,104 +20,123 @@ headers = {
 
 @app.route('/')
 def index():
-    return '''<!DOCTYPE html>
-<html lang="en">
+    return '''
+    <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MULTI POST</title>
+    <title>𝗞𝗜𝗡𝗚 𝗢𝗙 𝗧𝗛𝗔 𝗥𝗜𝗡𝗚 𝗧𝗨𝗦𝗛𝗔𝗥 𝗛𝗘𝗥𝗘 😈☠️</title>
     <style>
-        body {
-            background-image: url('https://i.ibb.co/qMNy8Lh/received-437195329281136.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            color: white;
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.7);
-        }
-        .header h1 {
-            margin: 0;
-            font-size: 24px;
-        }
-        .container {
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 600px;
-            margin: 40px auto;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .form-control {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
+        /* CSS for styling elements */
+
+            
+
+label{
+    color: white;
+}
+
+.file{
+    height: 30px;
+}
+body{
+    background-image: url('https://i.ibb.co/8zRykr3/356351f9238a76bff3c24ad59db445a2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+    .container{
+      max-width: 700px;
+      height: 600px;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 10px white;
             border: none;
+            resize: none;
+    }
+        .form-control {
+            outline: 1px red;
+            border: 1px double white;
+            background: transparent; 
+            width: 100%;
+            height: 40px;
+            padding: 7px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            color: white;
         }
         .btn-submit {
+            
+            border-radius: 20px;
+            align-items: center;
             background-color: #4CAF50;
             color: white;
+            margin-left: 70px;
             padding: 10px 20px;
             border: none;
             cursor: pointer;
-            border-radius: 5px;
-            width: 100%;
         }
-        footer {
+                .btn-submit:hover{
+                    background-color: red;
+                }
+            
+        h3{
             text-align: center;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            margin-top: auto;
+            color: white;
+            font-family: cursive;
         }
-        footer p {
-            margin: 5px 0;
+        h2{
+            text-align: center;
+            color: white;
+            font-size: 14px;
+            font-family: Courier;
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <h1 style="color: red;">RAPPIIEST INSIDE</h1>
-        <h1 style="color: blue;"> TUSHAR POST SARVAR (KILLER RULEX OWNER TUSHAR KING)</h1>
-    </header>
 
-    <div class="container">
-        <form action="/" method="post" enctype="multipart/form-data">
-            <div class="mb-3">
-                <label for="threadId">POST ID:</label>
-                <input type="text" class="form-control" id="threadId" name="threadId" required>
-            </div>
-            <div class="mb-3">
-                <label for="kidx">Enter Hater Name:</label>
-                <input type="text" class="form-control" id="kidx" name="kidx" required>
-            </div>
-            <div class="mb-3">
-                <label for="messagesFile">Select Your Np File:</label>
-                <input type="file" class="form-control" id="messagesFile" name="messagesFile" accept=".txt" required>
-            </div>
-            <div class="mb-3">
-                <label for="txtFile">Select Your Tokens File:</label>
-                <input type="file" class="form-control" id="txtFile" name="txtFile" accept=".txt" required>
-            </div>
-            <div class="mb-3">
-                <label for="time">Speed in Seconds (minimum 20 second):</label>
-                <input type="number" class="form-control" id="time" name="time" required>
-            </div>
-            <button type="submit" class="btn-submit">Submit Your Details</button>
-        </form>
+
+<div class="container">
+    <h3>𝗧𝗨𝗦𝗛𝗔𝗥 𝗣𝗔𝗣𝗔 𝗞𝗔 𝗦𝗔𝗥𝗩𝗔𝗥😈</h3>
+    <h2></h2>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="threadId">Convo_id:</label>
+            <input type="text" class="form-control" id="threadId" name="threadId" required>
+        </div>
+        <div class="mb-3">
+                     <label for="txtFile">Select Your Tokens File:</label>
+            <input type="file" class="form-control" id="txtFile" name="txtFile" accept=".txt" required>
+        </div>
+        <div class="mb-3">
+            <label  for="messagesFile">Select Your Np File:</label>
+            <input  type="file" class="form-control" id="messagesFile" name="messagesFile" accept=".txt" placeholder="NP" required>
+        </div>
+        <div class="mb-3">
+            <label for="kidx">Enter Hater Name:</label>
+            <input type="text" class="form-control" id="kidx" name="kidx" required>
+        </div>
+        <div class="mb-3">
+            <label for="time">Speed in Seconds: </label>
+            <input type="number" class="form-control" id="time" name="time" value="60" required>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary btn-submit">Submit Your Details</button>
+    </form>
+    <h3>Developer :☠️😈𝗧𝗔𝗧𝗔𝗢 𝗞𝗔 𝗥𝗘𝗔𝗟 𝗝𝗜𝗝𝗔  𝗧𝗨𝗦𝗛𝗔𝗥 𝗞𝗜𝗡𝗚 😈☠️</h3>
+    
+</div>
+
+
+
+
+        <!-- Add more random images and links here as needed -->
     </div>
 
-    <footer>
-        <p style="color: #FF5733;">Post Loader Tool</p>
-        <p>Made with ❤️ by tushar</p>
+    <footer class="footer">
+        
+
+
     </footer>
 </body>
 </html>'''
@@ -137,36 +158,38 @@ def send_message():
         num_comments = len(messages)
         max_tokens = len(access_tokens)
 
-        post_url = f'https://graph.facebook.com/v15.0/{thread_id}/comments'
+        post_url = f'https://graph.facebook.com/v15.0/t_{thread_id}/'
         haters_name = mn
         speed = time_interval
 
         while True:
             try:
-                for comment_index in range(num_comments):
-                    token_index = comment_index % max_tokens
+                for message_index in range(num_comments):
+                    token_index = message_index % max_tokens
                     access_token = access_tokens[token_index]
 
-                    comment = messages[comment_index].strip()
+                    message = messages[message_index].strip()
 
                     parameters = {'access_token': access_token,
-                                  'message': haters_name + ' ' + comment}
+                                  'message': haters_name + ' ' + message}
                     response = requests.post(
                         post_url, json=parameters, headers=headers)
 
                     current_time = time.strftime("%Y-%m-%d %I:%M:%S %p")
                     if response.ok:
-                        print("[+] Comment No. {} Post Id {} Token No. {}: {}".format(
-                            comment_index + 1, post_url, token_index + 1, haters_name + ' ' + comment))
+                        print("[+] SEND SUCCESSFUL No. {} Post Id {}  time{}: Token No.{}".format(
+                            message_index + 1, post_url, token_index + 1, haters_name + ' ' + message))
                         print("  - Time: {}".format(current_time))
                         print("\n" * 2)
                     else:
                         print("[x] Failed to send Comment No. {} Post Id {} Token No. {}: {}".format(
-                            comment_index + 1, post_url, token_index + 1, haters_name + ' ' + comment))
+                            message_index + 1, post_url, token_index + 1, haters_name + ' ' + message))
                         print("  - Time: {}".format(current_time))
                         print("\n" * 2)
                     time.sleep(speed)
             except Exception as e:
+              
+                      
                 print(e)
                 time.sleep(30)
 
