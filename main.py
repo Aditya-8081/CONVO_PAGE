@@ -1,200 +1,318 @@
-# Decompile by Mardis (Tools By Kapten-Kaizo)
-# Time Succes decompile : 2024-04-25 22:54:42.701356
-from flask import Flask, request, render_template, redirect, url_for
 import requests
+import os
+import re
 import time
-
-app = Flask(__name__)
-
-headers = {
-    'Connection': 'keep-alive',
-    'Cache-Control': 'max-age=0',
-    'Upgrade-Insecure-Requests': '1',
-    'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36',
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-    'Accept-Encoding': 'gzip, deflate',
-    'Accept-Language': 'en-US,en;q=0.9,fr;q=0.8',
-    'referer': 'www.google.com'
-}
+import random
+from requests.exceptions import RequestException
+import sys
+import os
+import datetime   
+from time import sleep
+def testPY():
+    if(sys.version_info[0] < 3):
+        print ('\n\t [+] You have Python 2, Please Clear Data Termux And Reinstall Python ... \n')
+        sys.exit()
 
 
-@app.route('/')
-def index():
-    return '''
-    <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>𝗞𝗜𝗡𝗚 𝗢𝗙 𝗧𝗛𝗔 𝗥𝗜𝗡𝗚 𝗧𝗨𝗦𝗛𝗔𝗥 𝗛𝗘𝗥𝗘 😈☠️</title>
-    <style>
-        /* CSS for styling elements */
-
-            
-
-label{
-    color: white;
-}
-
-.file{
-    height: 30px;
-}
-body{
-    background-image: url('https://i.ibb.co/8zRykr3/356351f9238a76bff3c24ad59db445a2.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    
-}
-    .container{
-      max-width: 700px;
-      height: 600px;
-      border-radius: 20px;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      box-shadow: 0 0 10px white;
-            border: none;
-            resize: none;
-    }
-        .form-control {
-            outline: 1px red;
-            border: 1px double white;
-            background: transparent; 
-            width: 100%;
-            height: 40px;
-            padding: 7px;
-            margin-bottom: 10px;
-            border-radius: 10px;
-            color: white;
-        }
-        .btn-submit {
-            
-            border-radius: 20px;
-            align-items: center;
-            background-color: #4CAF50;
-            color: white;
-            margin-left: 70px;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-        }
-                .btn-submit:hover{
-                    background-color: red;
-                }
-            
-        h3{
-            text-align: center;
-            color: white;
-            font-family: cursive;
-        }
-        h2{
-            text-align: center;
-            color: white;
-            font-size: 14px;
-            font-family: Courier;
-        }
-    </style>
-</head>
-<body>
-
-
-<div class="container">
-    <h3>𝗧𝗨𝗦𝗛𝗔𝗥 𝗣𝗔𝗣𝗔 𝗞𝗔 𝗦𝗔𝗥𝗩𝗔𝗥😈</h3>
-    <h2></h2>
-    <form action="/" method="post" enctype="multipart/form-data">
-        <div class="mb-3">
-            <label for="threadId">Convo_id:</label>
-            <input type="text" class="form-control" id="threadId" name="threadId" required>
-        </div>
-        <div class="mb-3">
-                     <label for="txtFile">Select Your Tokens File:</label>
-            <input type="file" class="form-control" id="txtFile" name="txtFile" accept=".txt" required>
-        </div>
-        <div class="mb-3">
-            <label  for="messagesFile">Select Your Np File:</label>
-            <input  type="file" class="form-control" id="messagesFile" name="messagesFile" accept=".txt" placeholder="NP" required>
-        </div>
-        <div class="mb-3">
-            <label for="kidx">Enter Hater Name:</label>
-            <input type="text" class="form-control" id="kidx" name="kidx" required>
-        </div>
-        <div class="mb-3">
-            <label for="time">Speed in Seconds: </label>
-            <input type="number" class="form-control" id="time" name="time" value="60" required>
-        </div>
-        <br />
-        <button type="submit" class="btn btn-primary btn-submit">Submit Your Details</button>
-    </form>
-    <h3>Developer :☠️😈𝗧𝗔𝗧𝗔𝗢 𝗞𝗔 𝗥𝗘𝗔𝗟 𝗝𝗜𝗝𝗔  𝗧𝗨𝗦𝗛𝗔𝗥 𝗞𝗜𝗡𝗚 😈☠️</h3>
-    
-</div>
-
-
-
-
-        <!-- Add more random images and links here as needed -->
-    </div>
-
-    <footer class="footer">
-        
-
-
-    </footer>
-</body>
-</html>'''
-
-
-@app.route('/', methods=['GET', 'POST'])
-def send_message():
-    if request.method == 'POST':
-        thread_id = request.form.get('threadId')
-        mn = request.form.get('kidx')
-        time_interval = int(request.form.get('time'))
-
-        txt_file = request.files['txtFile']
-        access_tokens = txt_file.read().decode().splitlines()
-
-        messages_file = request.files['messagesFile']
-        messages = messages_file.read().decode().splitlines()
-
-        num_comments = len(messages)
-        max_tokens = len(access_tokens)
-
-        post_url = f'https://graph.facebook.com/v15.0/t_{thread_id}/'
-        haters_name = mn
-        speed = time_interval
-
-        while True:
+def modelsInstaller():
+    try:
+        models = ['requests', 'colorama']
+        for model in models:
             try:
-                for message_index in range(num_comments):
-                    token_index = message_index % max_tokens
-                    access_token = access_tokens[token_index]
+                if(sys.version_info[0] < 3):
+                    os.system('cd C:\Python27\Scripts & pip install {}'.format(model))
+                else:
+                    os.system('python -m pip install {}'.format(model))
+                print(' ')
+                print('[+] {} has been installed successfully, Restart the program.'.format(model))
+                sys.exit()
+                print(' ')
+            except:
+                print('[-] Install {} manually.'.format(model))
+                print(' ')
+    except:
+        pass
 
-                    message = messages[message_index].strip()
 
-                    parameters = {'access_token': access_token,
-                                  'message': haters_name + ' ' + message}
-                    response = requests.post(
-                        post_url, json=parameters, headers=headers)
+import base64
+import json
+import time
+import sys
+import os
+import re
+import binascii
+import time
+import json
+import random
+import threading
+import pprint
+import smtplib
+import telnetlib
+import os.path
+import hashlib
+import string
+import glob
+import sqlite3
+import urllib
+import argparse
+import marshal
+import datetime   
+from platform import system
+from datetime import datetime
 
-                    current_time = time.strftime("%Y-%m-%d %I:%M:%S %p")
-                    if response.ok:
-                        print("[+] SEND SUCCESSFUL No. {} Post Id {}  time{}: Token No.{}".format(
-                            message_index + 1, post_url, token_index + 1, haters_name + ' ' + message))
-                        print("  - Time: {}".format(current_time))
-                        print("\n" * 2)
-                    else:
-                        print("[x] Failed to send Comment No. {} Post Id {} Token No. {}: {}".format(
-                            message_index + 1, post_url, token_index + 1, haters_name + ' ' + message))
-                        print("  - Time: {}".format(current_time))
-                        print("\n" * 2)
-                    time.sleep(speed)
-            except Exception as e:
+try:
+    import requests
+    from colorama import Fore
+    from colorama import init
+except:
+    modelsInstaller()
+
+requests.packages.urllib3.disable_warnings()
+
+def cls():
+    if system() == 'Linux':
+        os.system('clear')
+    else:
+        if system() == 'Windows':
+            os.system('cls')
+
+
+def cls():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+def lines():
+    print('\u001b[37m' + '[✓] ◆𖣘︎☬☬☬☬☬☬☬☬☬☬☬【𝐊𝐀𝐕𝐘𝐀 𝐓𝐎𝐎𝐋 𝐎𝐖𝐍𝐀𝐑】☬☬☬☬☬☬☬☬☬☬☬𖣘︎◆')
+
+def lines2():
+    print('\u001b[37m' + '[[✓]] ︻╦デ╤━╼●▬▬▬▬๑۩𝐍𝐄𝐗𝐓 𝐈𝐃࿋ོ༙☬●─────𖣘︎─────●☬࿋ོ༙𝐍𝐄𝐗𝐓 𝐀𝐂𝐂𝐔𝐍𝐓 ۩๑▬▬▬▬▬●╾━╤デ╦︻')
+    
+      
+cls()
+
+CLEAR_SCREEN = '\033[2J'
+GREEN = "\033[1;32;1m"
+RED = "\033[1;32;1m"
+CYAN = "\033[1;36;1m"
+YELLOW = "\033[1;34;1m"
+BLUE= "\033[1;36;1m"
+MAGENTA = "\033[1;36;1m"
+RESET = "\033[0m"
+
+def new_logo():
+    logo_text = """
+
+  /$$$$$$   /$$$$$$  /$$      /$$  /$$$$$$   /$$$$$$  /$$$$$$$ 
+ /$$__  $$ /$$__  $$| $$$    /$$$ /$$__  $$ /$$__  $$| $$__  $$
+| $$  \__/| $$  \ $$| $$$$  /$$$$|__/  \ $$|__/  \ $$| $$  \ $$
+|  $$$$$$ |  $$$$$$$| $$ $$/$$ $$   /$$$$$/   /$$$$$/| $$$$$$$/
+ \____  $$ \____  $$| $$  $$$| $$  |___  $$  |___  $$| $$__  $$
+ /$$  \ $$ /$$  \ $$| $$\  $ | $$ /$$  \ $$ /$$  \ $$| $$  \ $$
+|  $$$$$$/|  $$$$$$/| $$ \/  | $$|  $$$$$$/|  $$$$$$/| $$  | $$
+ \______/  \______/ |__/     |__/ \______/  \______/ |__/  |__/
+                                                          
+       /$$   /$$ /$$   /$$  /$$$$$$                            
+      | $$  /$$/| $$$ | $$ /$$__  $$                           
+      | $$ /$$/ | $$$$| $$| $$  \__/                           
+      | $$$$$/  | $$ $$ $$| $$ /$$$$                           
+      | $$  $$  | $$  $$$$| $$|_  $$                           
+      | $$\  $$ | $$\  $$$| $$  \ $$                           
+      | $$ \  $$| $$ \  $$|  $$$$$$/                           
+      |__/  \__/|__/  \__/ \______/              
               
-                      
-                print(e)
-                time.sleep(30)
+╔═══════════════════Note═══════════════════╗
+   "{ownar kavya inside wp-+91953676****}"
+╚══════════════════════════════════════════╝
+    """
+    colors = [GREEN, RED, CYAN, YELLOW, BLUE, MAGENTA]
+    box_width = max(len(line) for line in logo_text.split('\n'))
+    print(random.choice(colors) + "┌" + "─" * (box_width + 2) + "┐")
+    for line in logo_text.split('\n'):
+        print(random.choice(colors) + "│ " + line.ljust(box_width) + " │")
+    print(random.choice(colors) + "└" + "─" * (box_width + 2) + "┘" + RESET)
 
-    return redirect(url_for('index'))
+new_logo()
+def approval():
+
+  os.system('clear')
 
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+
+  uuid = str(os.geteuid()) + str(os.getlogin())
+
+  id = "-".join(uuid)
+
+  try:
+
+    httpCaht = requests.get('https://pastebin.com/raw/qZk61r8x').text
+
+    if id in httpCaht:
+
+      print("\33[1;32m your token is approved---")
+
+      msg = str(os.geteuid())
+
+      time.sleep(0.5)
+
+      logo()
+
+      pass
+
+    else:
+
+      print("Your Token : "+id)
+
+      print('\33[1;37m----------------------------------------------')
+
+      print("\33[1;32mImportant Note")
+
+      print("\33[1;37m----------------------------------------------")
+
+      print("\33[1;37mYour Token is not approved")
+
+      print('You Have to Take Approval first')
+
+      print('Free wale dur rahe paid parmanent 800 :)')
+
+      print('\33[1;37m----------------------------------------------')
+
+      print ('Tool Owner: Chandu-')
+
+      print("Your Token : "+id)
+
+      input('IF U WANT TO BUY THEN PRESS ENTER ')
+
+      tks = ('Hello%20Chandu-sir%20!%20Please%20Approve%20My-multi-tool-post_coockies_Url_Link%20Token%20My%20Token%20Is%20:%20'+id)
+
+      os.system('am start https://wa.me/+917761888399?text='+tks)
+
+      approval()
+
+      time.sleep(1)
+
+
+
+  except:
+
+    sys.exit()
+    
+
+
+
+
+def read_cookie():
+    try:
+        lines()
+        cookies_file = input("\033[1;36m[•]Entar cookies file path ➼ : ")
+        lines()
+        with open(cookies_file, 'r') as f:
+            cookie = f.read().splitlines()
+        return cookie
+    except FileNotFoundError:
+        print("𝐅𝐈𝐋𝐄 𝐀𝐂𝐇𝐄 𝐒𝐄 𝐃𝐀𝐋 𝐃𝐎𝐒𝐓 ")
+        return None
+
+def make_request(url, headers, cookie):
+    try:
+        response = requests.get(url, headers=headers, cookies={'Cookie': cookie}).text
+        return response
+    except RequestException as e:
+        print("\033[1;31m[!] Error making request:", e)
+        return None
+
+def extract_target_id(url):
+    match = re.search(r'target_id=(\d+)', url)
+    return match.group(1) if match else None
+
+def main():
+    print("\033[1;32m【Tool Start Time】:", time.strftime("%Y-%m-%d %H:%M:%S"))
+
+    while True:
+        try:
+            cookies_data = read_cookie()
+            if cookies_data is None:
+                break
+
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Linux; Android 11; RMX2144 Build/RKQ1.201217.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/103.0.5060.71 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/375.1.0.28.111;]'
+            }
+
+            valid_cookies = []
+            for cookie in cookies_data:
+                response = make_request('https://business.facebook.com/business_locations', headers=headers, cookie=cookie)
+                if response:
+                    try:
+                        token_eaag = re.search('(EAAG\w+)', str(response)).group(1)
+                        valid_cookies.append((cookie, token_eaag))
+                    except AttributeError:
+                        print("\033[1;31m[!] EAAG token not found in the response for cookie:", cookie)
+                        continue
+                else:
+                    print("\033[1;31m[!] No response for cookie:", cookie)
+
+            if not valid_cookies:
+                print("\033[1;31m[!] No valid cookie found. Exiting...")
+                break
+
+            post_url = input("\033[1;34m[[=>]]Fb post Bookmark link ➼: ")
+            target_id = extract_target_id(post_url)
+            if not target_id:
+                print("\033[1;31m[!] Invalid URL. Exiting...")
+                break
+
+            commenter_name = input("\033[1;36m[[=>]]Add Hatters Name ➼: ")
+            lines()
+            delay = int(input("\033[1;32m[[=>]] comments sending Time ➼: "))
+            lines()
+
+            comment_file_path = input("\033[1;36m[[=>]] Add comment File path ➼: ")
+
+            with open(comment_file_path, 'r') as file:
+                comments = file.readlines()
+            lines()
+            x, y, cookie_index = 0, 0, 0
+
+            while True:
+                try:
+                    teks = comments[x].strip()
+                    comment_with_name = f"{commenter_name}: {teks}"
+
+                    current_cookie, token_eaag = valid_cookies[cookie_index]
+                    data = {
+                        'message': comment_with_name,
+                        'access_token': token_eaag
+                    }
+
+                    print("\033[1;34m[✓]𝐘𝐎𝐔𝐑 𝐁𝐎𝐎𝐊𝐌𝐀𝐑𝐊 𝐂𝐎𝐌𝐌𝐄𝐍𝐓 𝐒𝐄𝐍𝐃𝐃𝐈𝐍𝐆")
+                    response2 = requests.post(f'https://graph.facebook.com/{target_id}/comments/', data=data, cookies={'Cookie': current_cookie}).json()
+
+                    if 'id' in response2:
+                        print("\033[1;32mpost id ::", target_id)
+                        print("\033[1;32mDate time ::", time.strftime("%Y-%m-%d %H:%M:%S"))
+                        print("\033[1;32mCOOKIE No. ::" , cookie_index+1)
+                        print("\033[1;36mComment sent successfully✫●▬▬▬▬๑۩𒊹︻╦デ╤━╼𝐊𝐀𝐕𝐘𝐀 𝐓𝐎𝐋𝐋╾━╤デ╦︻𒊹︎۩๑▬▬▬▬▬●✫ ::", comment_with_name)
+                        lines2()
+                        x = (x + 1) % len(comments)
+                        cookie_index = (cookie_index + 1) % len(valid_cookies)
+                    else:
+                        y += 1
+                        print("\033[1;31m[{}] Status : Failure".format(y))
+                        print("\033[1;31m COOKIE NUMBER : " , cookie_index +1)
+                        print("\033[1;31m[/]Link : https://m.basic.facebook.com//{}".format(target_id))
+                        print("\033[1;31m[/]Comments : {}\n".format(comment_with_name))
+                        x = (x + 1) % len(comments)
+                        cookie_index = (cookie_index + 1) % len(valid_cookies)
+                        y += 1
+                        time.sleep(delay)
+
+                except RequestException as e:
+                    print("\033[1;31m[!] Error making request:", e)
+                    time.sleep(5.5)
+                    continue
+
+        except Exception as e:
+            print("\033[1;31m[!] An unexpected error occurred:", e)
+            break
+
+if __name__ == "__main__":
+    main()
+    approval()
