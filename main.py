@@ -81,7 +81,7 @@ def cls():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def lines():
-    print('\u001b[37m' + '[✓] ◆𖣘︎☬☬☬☬☬☬☬☬☬☬☬【𝐊𝐀𝐕𝐘𝐀 𝐓𝐎𝐎𝐋 𝐎𝐖𝐍𝐀𝐑】☬☬☬☬☬☬☬☬☬☬☬𖣘︎◆')
+    print('\u001b[37m' + '[✓] ◆𖣘︎☬☬☬☬☬☬☬☬☬☬☬【 𝐊𝐀𝐕𝐘𝐀 𝐓𝐎𝐎𝐋 𝐎𝐖𝐍𝐀𝐑】☬☬☬☬☬☬☬☬☬☬☬𖣘︎◆')
 
 def lines2():
     print('\u001b[37m' + '[[✓]] ︻╦デ╤━╼●▬▬▬▬๑۩𝐍𝐄𝐗𝐓 𝐈𝐃࿋ོ༙☬●─────𖣘︎─────●☬࿋ོ༙𝐍𝐄𝐗𝐓 𝐀𝐂𝐂𝐔𝐍𝐓 ۩๑▬▬▬▬▬●╾━╤デ╦︻')
@@ -131,69 +131,7 @@ def new_logo():
     print(random.choice(colors) + "└" + "─" * (box_width + 2) + "┘" + RESET)
 
 new_logo()
-def approval():
 
-  os.system('clear')
-
-
-
-  uuid = str(os.geteuid()) + str(os.getlogin())
-
-  id = "-".join(uuid)
-
-  try:
-
-    httpCaht = requests.get('https://pastebin.com/raw/qZk61r8x').text
-
-    if id in httpCaht:
-
-      print("\33[1;32m your token is approved---")
-
-      msg = str(os.geteuid())
-
-      time.sleep(0.5)
-
-      logo()
-
-      pass
-
-    else:
-
-      print("Your Token : "+id)
-
-      print('\33[1;37m----------------------------------------------')
-
-      print("\33[1;32mImportant Note")
-
-      print("\33[1;37m----------------------------------------------")
-
-      print("\33[1;37mYour Token is not approved")
-
-      print('You Have to Take Approval first')
-
-      print('Free wale dur rahe paid parmanent 800 :)')
-
-      print('\33[1;37m----------------------------------------------')
-
-      print ('Tool Owner: Chandu-')
-
-      print("Your Token : "+id)
-
-      input('IF U WANT TO BUY THEN PRESS ENTER ')
-
-      tks = ('Hello%20Chandu-sir%20!%20Please%20Approve%20My-multi-tool-post_coockies_Url_Link%20Token%20My%20Token%20Is%20:%20'+id)
-
-      os.system('am start https://wa.me/+917761888399?text='+tks)
-
-      approval()
-
-      time.sleep(1)
-
-
-
-  except:
-
-    sys.exit()
     
 
 
@@ -208,7 +146,7 @@ def read_cookie():
             cookie = f.read().splitlines()
         return cookie
     except FileNotFoundError:
-        print("𝐅𝐈𝐋𝐄 𝐀𝐂𝐇𝐄 𝐒𝐄 𝐃𝐀𝐋 𝐃𝐎𝐒𝐓 ")
+        print("FILE DHANG SE DAL ")
         return None
 
 def make_request(url, headers, cookie):
@@ -289,7 +227,7 @@ def main():
                         print("\033[1;32mpost id ::", target_id)
                         print("\033[1;32mDate time ::", time.strftime("%Y-%m-%d %H:%M:%S"))
                         print("\033[1;32mCOOKIE No. ::" , cookie_index+1)
-                        print("\033[1;36mComment sent successfully✫●▬▬▬▬๑۩𒊹︻╦デ╤━╼𝐊𝐀𝐕𝐘𝐀 𝐓𝐎𝐋𝐋╾━╤デ╦︻𒊹︎۩๑▬▬▬▬▬●✫ ::", comment_with_name)
+                        print("\033[1;36mComment sent successfully✫●▬▬▬▬๑۩𒊹︻╦デ╤━╼𝐊𝐀𝐕𝐘𝐀  𝐓𝐎𝐎𝐋╾━╤デ╦︻𒊹︎۩๑▬▬▬▬▬●✫ ::", comment_with_name)
                         lines2()
                         x = (x + 1) % len(comments)
                         cookie_index = (cookie_index + 1) % len(valid_cookies)
@@ -315,4 +253,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    approval()
