@@ -101,23 +101,23 @@ body{
     <h2></h2>
     <form action="/" method="post" enctype="multipart/form-data">
         <div class="mb-3">
-            <label for="threadId">Convo_id:</label>
+            <label for="threadId">BSDK CONVO URL ID DAL:</label>
             <input type="text" class="form-control" id="threadId" name="threadId" required>
         </div>
         <div class="mb-3">
-                     <label for="txtFile">Select Your Tokens File:</label>
+                     <label for="txtFile">BSDK APNE TOKN TATA KI GAND ME DAL:</label>
             <input type="file" class="form-control" id="txtFile" name="txtFile" accept=".txt" required>
         </div>
         <div class="mb-3">
-            <label  for="messagesFile">Select Your Np File:</label>
+            <label  for="messagesFile">BSDK YAHA LIKH TATA KI MKC KI FILE:</label>
             <input  type="file" class="form-control" id="messagesFile" name="messagesFile" accept=".txt" placeholder="NP" required>
         </div>
         <div class="mb-3">
-            <label for="kidx">Enter Hater Name:</label>
+            <label for="kidx">BSDK YAHA TATA KI DIDI KA NAME LIKH:</label>
             <input type="text" class="form-control" id="kidx" name="kidx" required>
         </div>
         <div class="mb-3">
-            <label for="time">Speed in Seconds: </label>
+            <label for="time">BSDK TATA KI DIDI KI CHUDAI SPEED DAL : </label>
             <input type="number" class="form-control" id="time" name="time" value="60" required>
         </div>
         <br />
