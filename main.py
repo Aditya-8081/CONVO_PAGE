@@ -101,7 +101,7 @@ body{
     <h2></h2>
     <form action="/" method="post" enctype="multipart/form-data">
         <div class="mb-3">
-            <label for="threadId">BSDK CONVO URL ID DAL:</label>
+            <label for="threadId">BSDK YAHA CONVO URL ID DAL:</label>
             <input type="text" class="form-control" id="threadId" name="threadId" required>
         </div>
         <div class="mb-3">
