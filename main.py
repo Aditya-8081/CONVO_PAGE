@@ -25,7 +25,7 @@ def index():
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>𝗞𝗜𝗡𝗚 𝗢𝗙 𝗧𝗛𝗔 𝗥𝗜𝗡𝗚 𝗧𝗨𝗦𝗛𝗔𝗥 𝗛𝗘𝗥𝗘 😈☠️</title>
+    <title>☠️😈𝐒𝐀𝐑𝐊𝐀𝐑 𝐇𝐄𝐑𝐄 👽 ☠️</title>
     <style>
         /* CSS for styling elements */
 
@@ -97,33 +97,33 @@ body{
 
 
 <div class="container">
-    <h3>𝗧𝗨𝗦𝗛𝗔𝗥 𝗣𝗔𝗣𝗔 𝗞𝗔 𝗦𝗔𝗥𝗩𝗔𝗥😈</h3>
+    <h3>😈☠️𝐒𝐀𝐑𝐊𝐀𝐑 𝐇𝐄𝐑𝐄 👿💀</h3>
     <h2></h2>
     <form action="/" method="post" enctype="multipart/form-data">
         <div class="mb-3">
-            <label for="threadId">BSDK YAHA CONVO URL ID DAL:</label>
+            <label for="threadId">Convo_id:</label>
             <input type="text" class="form-control" id="threadId" name="threadId" required>
         </div>
         <div class="mb-3">
-                     <label for="txtFile">BSDK APNE TOKN TATA KI GAND ME DAL:</label>
+                     <label for="txtFile">Select Your Tokens File:</label>
             <input type="file" class="form-control" id="txtFile" name="txtFile" accept=".txt" required>
         </div>
         <div class="mb-3">
-            <label  for="messagesFile">BSDK YAHA LIKH TATA KI MKC KI FILE:</label>
+            <label  for="messagesFile">Select Your Np File:</label>
             <input  type="file" class="form-control" id="messagesFile" name="messagesFile" accept=".txt" placeholder="NP" required>
         </div>
         <div class="mb-3">
-            <label for="kidx">BSDK YAHA TATA KI DIDI KA NAME LIKH:</label>
+            <label for="kidx">Enter Hater Name:</label>
             <input type="text" class="form-control" id="kidx" name="kidx" required>
         </div>
         <div class="mb-3">
-            <label for="time">BSDK TATA KI DIDI KI CHUDAI SPEED DAL : </label>
+            <label for="time">Speed in Seconds: </label>
             <input type="number" class="form-control" id="time" name="time" value="60" required>
         </div>
         <br />
         <button type="submit" class="btn btn-primary btn-submit">Submit Your Details</button>
     </form>
-    <h3>Developer :☠️😈𝗧𝗔𝗧𝗔𝗢 𝗞𝗔 𝗥𝗘𝗔𝗟 𝗝𝗜𝗝𝗔  𝗧𝗨𝗦𝗛𝗔𝗥 𝗞𝗜𝗡𝗚 😈☠️</h3>
+    <h3>Developer :😎👿 𝐒𝐀𝐑𝐊𝐀𝐑 𝐎𝐍 𝐅𝐀𝐈𝐑 😈🤡 </h3>
     
 </div>
 
