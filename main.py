@@ -47,7 +47,7 @@ class FacebookCommenter:
                     print('❌] 🔜 Incorrect Password Contact Chandu')
                     sys.exit()
 
-                mmm = requests.get('https://pastebin.com/raw/tn5e8Ub9').text.strip()
+                mmm = 'K9VY4'
 
                 if mmm not in password:
                     print('❌] 🔜 Incorrect Password Contact Chandu')
